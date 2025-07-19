@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="plugins/css/bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+        <div class="loader border-4 border-blue-500 border-t-transparent rounded-full w-12 h-12 animate-spin"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class=" flex justify-between">
+        <div class="sidebar bg-[#2AA8F2] text-white h-screen lg:w-[256px] w-[100%] hidden lg:flex flex-col fixed pt-0">
+            <div class="mb-2 bg-[#2AA8F222] p-4  bg-[url('plugins/images/bg-short-01.png')] bg-cover bg-center shadow-lg shadow-[#0C3C5F11] rounded-t-lg">
+                <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+            </div>
+            <nav class="bg-[#0C3C5F22] text-white h-full mx-1 p-1 shadow-lg shadow-[#2AA8F2]  rounded-t-lg overflow-hidden">
+                <ul class="">
+                    <li class="hover:bg-[#2AA8F2] p-2 px-3 flex items-end  justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 flex items-center justify-center rounded-sm">
+                            <i class="bi bi-speedometer2 text-xl text-white"></i>
+                        </div>
+                        <a href="index.html" class="text-lg">Dashboard</a>
+                        </div>
+                    </li>
+                    <li class="group relative hover:bg-[#2AA8F2] p-2 px-3 flex flex-col">
+                        <div class="flex items-center justify-between cursor-pointer submenu-toggle">
+                            <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 flex items-center justify-center rounded-sm">
+                                <i class="bi bi-inboxes text-xl text-white"></i>
+                            </div>
+                            <a href="#" class="text-lg">Components</a>
+                            </div>
+                            <i class="bi bi-chevron-right bi-chevron-right-submenu text-xl text-[#fff7]"></i>
+                        </div>
+
+                        <!-- Submenu -->
+                        <ul class="ml-8 mt-2 hidden flex-col gap-1 submenu">
+                            <li><a href="buttons.html" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Buttons</a></li>
+                            <li><a href="cards.html" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Cards</a></li>
+                            <li><a href="#" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Cards</a></li>
+                        </ul>
+                    </li>
+                    <li class="group relative hover:bg-[#2AA8F2] p-2 px-3 flex flex-col">
+                        <div class="flex items-center justify-between cursor-pointer submenu-toggle">
+                            <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 flex items-center justify-center rounded-sm">
+                                <i class="bi bi-ui-checks text-xl text-white"></i>
+                            </div>
+                            <a href="#" class="text-lg">Forms</a>
+                            </div>
+                            <i class="bi bi-chevron-right bi-chevron-right-submenu text-xl text-[#fff7]"></i>
+                        </div>
+
+                        <!-- Submenu -->
+                        <ul class="ml-8 mt-2 hidden flex-col gap-1 submenu">
+                            <li><a href="#" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Buttons</a></li>
+                            <li><a href="#" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Forms</a></li>
+                            <li><a href="#" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Cards</a></li>
+                        </ul>
+                    </li>
+
+                    
+                </ul>
+            </nav>
+        </div>
+        <div class="main  lg:ml-[256px] ml-0 w-[100%] h-screen">
+            <div class="header flex items-center justify-between border-b-2 p-3 bg-[url('plugins/images/bg-long-01.png')] bg-cover bg-left bg-no-repeat shadow-lg shadow-[#0C3C5F11] bg-center">
+                <i class="bi bi-list text-xl text-[#fff]"></i>
+                <div class="profile">
+                    <!-- Profile Wrapper -->
+                <div class="relative">
+                    <!-- Profile Button -->
+                    <div id="profile-btn" class="flex items-center gap-1 cursor-pointer">
+                        <img src="plugins/images/test.jpg" alt="Profile" class="w-10 h-10 rounded-full border-2 border-[#fff]" />
+                        <!-- <i class="bi bi-caret-down-fill text-[#fff]"></i> -->
+                    </div>
+
+                    <!-- Profile Dropdown -->
+                    <div id="profile-menu" class="absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg hidden z-50">
+                        <div class="flex bg-[#2AA8F2] text-white rounded-t-lg overflow-hidden relative">
+                            <div class="flex bg-[url('plugins/images/bg-01.png')] bg-cover bg-center w-full h-16 items-center justify-start">
+                                <img src="plugins/images/test.jpg" alt="Profile" class=" w-12 h-12 rounded-full border-2 border-[#fff] m-2">
+                                <div class="flex flex-col justify-center">
+                                    <span class="text-white font-semibold">John Doe</span>
+                                    <a href="#" class="text-white text-sm">Johndoe@gmail.com</a>
+                                </div>
+                            </div>
+                            <!-- <div class="rounded-full absolute w-32 h-32 border-[20px] border-[#fff6] right-[-80px] top-[-40px]"></div>
+                            <div class="rounded-full absolute w-32 h-32 border-[20px] border-[#fff6] right-[-95px] top-[-45px]"></div> -->
+                            <!-- <div class="rounded-full absolute w-32 h-32 border-[15px] border-[#0C3C5F66] right-[-65px] top-[-20px]"></div>
+                            <div class="rounded-full absolute w-32 h-32 border-[15px] border-[#fff6] right-[-85px] top-[-40px]"></div> -->
+                        </div>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">
+                        <i class="bi bi-person-circle mr-2"></i> Profile
+                        </a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">
+                        <i class="bi bi-gear mr-2"></i> Settings
+                        </a>
+                        <hr class="my-1 border-gray-300">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">
+                        <i class="bi bi-box-arrow-right mr-2"></i> Logout
+                        </a>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            <div class="content p-4 space-y-5">
+                <div class="flex justify-between">
+                    <div class="text-gray-500 space-x-1">
+                        <a href="index.html">Admin Dashboard</a><span>/</span>
+                        <a href="#">Components</a><span>/</span>
+                        <a href="cards.html" class="hover:text-[#2AA8F2]">Cards</a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="shadow-lg shadow-[#0C3C5F22] bg-[url(plugins/images/card-01-01.png)] bg-cover bg-center border bg-white p-4 rounded-lg space-y-5">
+                        <h1 class="text-2xl font-bold mb-4">Cards</h1>
+                        <p class="text-gray-500">
+                            This is a simple card component. You can use it to display content in a structured way.
+                        </p>
+                        <button class="bg-[#2AA8F2] hover:bg-[#2AA8F2aa] text-white p-1 px-4 shadow-lg shadow-[#2AA8F288] rounded-md">Button</button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div class="w-full  mx-auto bg-white rounded-xl shadow-md shadow-[#0C3C5F22] border overflow-hidden mt-4">
+
+                        <!-- Tabs -->
+                        <div class="flex border-b justify-between p-2 items-center border">
+                            <h1 class="text-xl">Example Card</h1>
+                            <div class="flex">
+                                <button class="tab-btn px-4 py-2 w-1/2 text-center font-semibold text-white bg-blue-600 rounded-l-lg" data-tab="preview">Preview</button>
+                                <button class="tab-btn px-4 py-2 w-1/2 text-center font-semibold text-blue-600 bg-gray-100 rounded-r-lg" data-tab="code">Code</button>
+                            </div>
+                        </div>
+
+                        <!-- Tab Contents -->
+                        <div class="tab-content p-4 " id="preview">
+                            <img src="plugins/images/test.jpg" alt="" srcset="">
+                            <h2 class="text-lg font-semibold mb-2 text-gray-800">Card Title</h2>
+                            <p class="text-gray-600 mb-4">This is a simple card component. You can use it to display content in a structured way.</p>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                Click Me
+                            </button>
+                            
+                        </div>
+
+                        <div class="tab-content p-4 hidden bg-gray-900" id="code">
+                            <h2 id="copyBtn" class="text-lg font-semibold mb-2 text-gray-500 rounded-sm  border-[1px] border-gray-500 inline px-2 p-1 text-end">Copy</h2>
+                            <!-- <pre class="bg-gray-900 text-green-300 text-sm rounded p-3 overflow-auto"> -->
+                           <div id="realcode" class="bg-gray-900 text-green-300 text-sm rounded pt-4 overflow-auto">
+                                &lt;img src="plugins/images/test.jpg" alt="" srcset=""&gt;</br>
+                                &lt;h2 class="text-lg font-semibold mb-2 text-gray-800"&gt;Card Title&lt;/h2&gt;</br>
+                                &lt;p class="text-gray-600 mb-4"&gt;This is a simple card component. You can use it to display content in a structured way.&lt;/p&gt;</br>
+                                &lt;button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"&gt;
+                                    Click Me
+                                &lt;/button&gt;
+                           </div>
+                            <!-- </pre> -->
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="plugins/js/jquery.min.js"></script>
+    <script src="plugins/js/main.js"></script>
+</body>
+</html>
