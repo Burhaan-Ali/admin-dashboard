@@ -16,11 +16,12 @@
 
     <!-- Main Content -->
     <div class=" flex justify-between">
-        <div class="sidebar bg-[#2AA8F2] text-white h-screen lg:w-[256px] w-[100%] hidden lg:flex flex-col fixed pt-0">
-            <div class="mb-2 bg-[#2AA8F222] p-4  bg-[url('plugins/images/bg-short-01.png')] bg-cover bg-center shadow-lg shadow-[#0C3C5F11] rounded-t-lg">
+        <div id="sidebar" class="sidebar bg-[#2AA8F2] text-white h-screen lg:w-[256px] w-[100%] z-10 hidden lg:flex flex-col fixed  transition-all duration-500 ease-in-out">
+            <div class="mb-2 bg-[#2AA8F222] p-4  bg-[url('plugins/images/bg-short-01.png')] bg-cover bg-center shadow-lg shadow-[#0C3C5F11] rounded-t-lg flex items-center justify-between">
                 <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+                <i id="sidebar-close" class="bi bi-x-lg lg:hidden flex mr-2"></i>
             </div>
-            <nav class="bg-[#0C3C5F22] text-white h-full mx-1 p-1 shadow-lg shadow-[#2AA8F2]  rounded-t-lg overflow-hidden">
+            <nav class="bg-[#0C3C5F22] text-white h-full p-1 shadow-lg shadow-[#2AA8F2]  rounded-t-lg overflow-hidden">
                 <ul class="">
                     <li class="hover:bg-[#2AA8F2] p-2 px-3 flex items-end  justify-between">
                         <div class="flex items-center gap-2">
@@ -71,9 +72,9 @@
                 </ul>
             </nav>
         </div>
-        <div class="main  lg:ml-[256px] ml-0 w-[100%] h-screen">
+        <div id="main" class="lg:ml-[256px] ml-0 w-[100%] h-screen transition-all duration-500 ease-in-out">
             <div class="header flex items-center justify-between border-b-2 p-3 bg-[url('plugins/images/bg-long-01.png')] bg-cover bg-left bg-no-repeat shadow-lg shadow-[#0C3C5F11] bg-center">
-                <i class="bi bi-list text-xl text-[#fff]"></i>
+                <i class="bi bi-list text-xl text-[#fff]" id="main-bars"></i>
                 <div class="profile">
                     <!-- Profile Wrapper -->
                 <div class="relative">
@@ -130,7 +131,7 @@
                         <button class="bg-[#2AA8F2] hover:bg-[#2AA8F2aa] text-white p-1 px-4 shadow-lg shadow-[#2AA8F288] rounded-md">Button</button>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4">
                     <div class="w-full  mx-auto bg-white rounded-xl shadow-md shadow-[#0C3C5F22] border overflow-hidden mt-4">
 
                         <!-- Tabs -->
@@ -167,8 +168,99 @@
                             <!-- </pre> -->
                         </div>
                     </div>
+                    <div class="w-full  mx-auto bg-white rounded-xl shadow-md shadow-[#0C3C5F22] border overflow-hidden mt-4">
 
+                        <!-- Tabs -->
+                        <div class="flex border-b justify-between p-2 items-center border">
+                            <h1 class="text-xl">Card with image</h1>
+                            <div class="flex">
+                                <button class="tab-btn px-4 py-2 w-1/2 text-center font-semibold text-white bg-blue-600 rounded-l-lg" data-tab="preview">Preview</button>
+                                <button class="tab-btn px-4 py-2 w-1/2 text-center font-semibold text-blue-600 bg-gray-100 rounded-r-lg" data-tab="code">Code</button>
+                            </div>
+                        </div>
 
+                        <!-- Tab Contents -->
+                        <div class="tab-content p-4" id="preview">
+                            <div class="flex items-end h-80 bg-[url('plugins/images/test.jpg')] bg-blend-multiply bg-[#0C3C5Fdd] bg-cover bg-center p-4 rounded-lg shadow-sm shadow-[#0C3C5F22]">
+                                <p class="text-white text-lg font-semibold">
+                                    This is a simple card component. You can use it to display content in a structured way.
+                                </p>
+                            </div>
+                            <h2 class="text-lg font-semibold mb-2 text-gray-800">Card Title</h2>
+                            <p class="text-gray-600 mb-4">This is a simple card component. You can use it to display content in a structured way.</p>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                Click Me
+                            </button>
+                            
+                        </div>
+
+                        <div class="tab-content p-4 hidden bg-gray-900" id="code">
+                            <h2 id="copyBtn" class="text-lg font-semibold mb-2 text-gray-500 rounded-sm  border-[1px] border-gray-500 inline px-2 p-1 text-end">Copy</h2>
+                            <!-- <pre class="bg-gray-900 text-green-300 text-sm rounded p-3 overflow-auto"> -->
+                           <div id="realcode" class="bg-gray-900 text-green-300 text-sm rounded pt-4 overflow-auto">
+                                &lt;img src="plugins/images/test.jpg" alt="" srcset=""&gt;</br>
+                                &lt;h2 class="text-lg font-semibold mb-2 text-gray-800"&gt;Card Title&lt;/h2&gt;</br>
+                                &lt;p class="text-gray-600 mb-4"&gt;This is a simple card component. You can use it to display content in a structured way.&lt;/p&gt;</br>
+                                &lt;button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"&gt;
+                                    Click Me
+                                &lt;/button&gt;
+                           </div>
+                            <!-- </pre> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full  mx-auto bg-white rounded-xl shadow-md shadow-[#0C3C5F22] border overflow-hidden mt-4">
+                    <!-- Tabs -->
+                    <div class="flex border-b justify-between p-2 items-center border">
+                        <h1 class="text-xl">Grouped card</h1>
+                        <div class="flex">
+                            <button class="tab-btn px-4 py-2 w-1/2 text-center font-semibold text-white bg-blue-600 rounded-l-lg" data-tab="preview">Preview</button>
+                            <button class="tab-btn px-4 py-2 w-1/2 text-center font-semibold text-blue-600 bg-gray-100 rounded-r-lg" data-tab="code">Code</button>
+                        </div>
+                    </div>
+
+                    <!-- Tab Contents -->
+                    <div class="tab-content p-4 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2" id="preview">
+                       <div class=" border p-2">
+                            <img src="plugins/images/test.jpg" alt="" srcset="">
+                            <h2 class="text-lg font-semibold mb-2 text-gray-800">Card One</h2>
+                            <p class="text-gray-600 mb-4">This is a simple card component. You can use it to display content in a structured way.</p>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                Click Me
+                            </button>
+                       </div>
+                        <div class="border p-2">
+                            <img src="plugins/images/test.jpg" alt="" srcset="">
+                            <h2 class="text-lg font-semibold mb-2 text-gray-800">Card Two</h2>
+                            <p class="text-gray-600 mb-4">This is a simple card component. You can use it to display content in a structured way.</p>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                Click Me
+                            </button>
+                        </div>
+                        <div class="border p-2">
+                            <img src="plugins/images/test.jpg" alt="" srcset="">
+                            <h2 class="text-lg font-semibold mb-2 text-gray-800">Card Three</h2>
+                            <p class="text-gray-600 mb-4">This is a simple card component. You can use it to display content in a structured way.</p>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                Click Me
+                            </button>
+                        </div>
+                        
+                    </div>
+
+                    <div class="tab-content p-4 hidden bg-gray-900" id="code">
+                        <h2 id="copyBtn" class="text-lg font-semibold mb-2 text-gray-500 rounded-sm  border-[1px] border-gray-500 inline px-2 p-1 text-end">Copy</h2>
+                        <!-- <pre class="bg-gray-900 text-green-300 text-sm rounded p-3 overflow-auto"> -->
+                        <div id="realcode" class="bg-gray-900 text-green-300 text-sm rounded pt-4 overflow-auto">
+                            &lt;img src="plugins/images/test.jpg" alt="" srcset=""&gt;</br>
+                            &lt;h2 class="text-lg font-semibold mb-2 text-gray-800"&gt;Card Title&lt;/h2&gt;</br>
+                            &lt;p class="text-gray-600 mb-4"&gt;This is a simple card component. You can use it to display content in a structured way.&lt;/p&gt;</br>
+                            &lt;button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"&gt;
+                                Click Me
+                            &lt;/button&gt;
+                        </div>
+                        <!-- </pre> -->
+                    </div>
                 </div>
             </div>
         </div>

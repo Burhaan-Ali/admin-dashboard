@@ -25,10 +25,17 @@ $(document).ready(function () {
     $("#main-bars").on("click",function (e) {
         e.stopPropagation(); // Prevent closing when clicking the button
         // Toggle sidebar visibility
-        $("#sidebar").toggleClass("lg:ml-[-100%] hidden lg:flex w-screen top-0 left-0 bottom-0 h-screen z-10 ");
+        $("#sidebar").toggleClass("lg:ml-[-100%] hidden lg:flex w-screen top-0 left-0 bottom-0 h-screen  ");
         // Adjust main content margin
         $("#main").toggleClass("lg:ml-[256px] ml-0 h-screen");
     });
+    $("#sidebar-close").on("click", function () {
+        // Hide sidebar
+        $("#sidebar").addClass("hidden w-screen");
+        // Adjust main content margin
+        $("#main").removeClass("lg:ml-[256px] ml-0 h-screen");
+    }
+    );
 });
 
   $(document).ready(function () {
