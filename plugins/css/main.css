@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
 *{
+    box-sizing: border-box;
     font-family: 'Playwrite Deutschland Grundschrift', sans-serif;
 }
 .loader {
