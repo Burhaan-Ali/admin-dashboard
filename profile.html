@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="plugins/css/bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Preloader: Shows a spinning loader before content loads -->
+    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+        <div class="loader border-4 border-blue-500 border-t-transparent rounded-full w-12 h-12 animate-spin"></div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class=" flex justify-between">
+        <!-- Sidebar Navigation -->
+        <div id="sidebar" class="sidebar bg-[#2AA8F2] text-white h-screen lg:w-[256px] w-[100%] z-10 hidden lg:flex flex-col fixed  transition-all duration-500 ease-in-out">
+            <!-- Sidebar Header with Logo/Title -->
+            <div class="mb-2 bg-[#2AA8F222] p-4  bg-[url('plugins/images/bg-short-01.png')] bg-cover bg-center shadow-lg shadow-[#0C3C5F11] rounded-t-lg flex items-center justify-between">
+                <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+                <!-- Sidebar Close Button (visible on mobile) -->
+                <i id="sidebar-close" class="bi bi-x-lg lg:hidden flex mr-2"></i>
+            </div>
+            <!-- Sidebar Navigation Links -->
+            <nav class="bg-[#0C3C5F22] text-white h-full p-1 shadow-lg shadow-[#2AA8F2]  rounded-t-lg overflow-hidden">
+                <ul class="">
+                    <!-- Dashboard Link -->
+                    <li class="hover:bg-[#2AA8F2] p-2 px-3 flex items-end  justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 flex items-center justify-center rounded-sm">
+                            <i class="bi bi-speedometer2 text-xl text-white"></i>
+                        </div>
+                        <a href="index.html" class="text-lg">Dashboard</a>
+                        </div>
+                    </li>
+                    <!-- Components Menu with Submenu -->
+                    <li class="group relative hover:bg-[#2AA8F2] p-2 px-3 flex flex-col">
+                        <div class="flex items-center justify-between cursor-pointer submenu-toggle">
+                            <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 flex items-center justify-center rounded-sm">
+                                <i class="bi bi-inboxes text-xl text-white"></i>
+                            </div>
+                            <a href="#" class="text-lg">Components</a>
+                            </div>
+                            <i class="bi bi-chevron-right bi-chevron-right-submenu text-xl text-[#fff7]"></i>
+                        </div>
+                        <!-- Submenu for Components -->
+                        <ul class="ml-8 mt-2 hidden flex-col gap-1 submenu">
+                            <li><a href="buttons.html" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Buttons</a></li>
+                            <li><a href="cards.html" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Cards</a></li>
+                            <li><a href="#" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Cards</a></li>
+                        </ul>
+                    </li>
+                    <!-- Forms Menu with Submenu -->
+                    <li class="group relative hover:bg-[#2AA8F2] p-2 px-3 flex flex-col">
+                        <div class="flex items-center justify-between cursor-pointer submenu-toggle">
+                            <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 flex items-center justify-center rounded-sm">
+                                <i class="bi bi-ui-checks text-xl text-white"></i>
+                            </div>
+                            <a href="#" class="text-lg">Forms</a>
+                            </div>
+                            <i class="bi bi-chevron-right bi-chevron-right-submenu text-xl text-[#fff7]"></i>
+                        </div>
+                        <!-- Submenu for Forms -->
+                        <ul class="ml-8 mt-2 hidden flex-col gap-1 submenu">
+                            <li><a href="#" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Buttons</a></li>
+                            <li><a href="#" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Forms</a></li>
+                            <li><a href="#" class="block px-2 py-1 rounded hover:bg-[#ffffff33]">Cards</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Main Content Area -->
+        <div id="main" class="lg:ml-[256px] ml-0 w-[100%] h-screen transition-all duration-500 ease-in-out">
+            <!-- Header Bar -->
+            <div class="header flex items-center justify-between border-b-2 p-3 bg-[url('plugins/images/bg-long-01.png')] bg-cover bg-left bg-no-repeat shadow-lg shadow-[#0C3C5F11] bg-center">
+                <!-- Sidebar Toggle Button (mobile) -->
+                <i class="bi bi-list text-xl text-[#fff]" id="main-bars"></i>
+                <div class="profile">
+                    <!-- Profile Wrapper -->
+                    <div class="relative">
+                        <!-- Profile Button (shows user image) -->
+                        <div id="profile-btn" class="flex items-center gap-1 cursor-pointer">
+                            <img src="plugins/images/test.jpg" alt="Profile" class="w-10 h-10 rounded-full border-2 border-[#fff]" />
+                        </div>
+                        <!-- Profile Dropdown Menu -->
+                        <div id="profile-menu" class="space-y-1 absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg hidden z-50">
+                            <div class="flex bg-[#2AA8F2] text-white rounded-t-lg overflow-hidden relative">
+                                <div class="flex bg-[url('plugins/images/bg-01.png')] bg-cover bg-center w-full h-16 items-center justify-start">
+                                    <img src="plugins/images/test.jpg" alt="Profile" class=" w-12 h-12 rounded-full border-2 border-[#fff] m-2">
+                                    <div class="flex flex-col justify-center">
+                                        <span class="text-white font-semibold">John Doe</span>
+                                        <a href="#" class="text-white text-sm">Johndoe@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="profile.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">
+                                <i class="bi bi-person-circle mr-2"></i> Profile
+                            </a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">
+                                <i class="bi bi-gear mr-2"></i> Settings
+                            </a>
+                            <hr class="my-1 border-gray-300">
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">
+                                <i class="bi bi-box-arrow-right mr-2"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Main Dashboard Content -->
+            <div class="content p-4 space-y-5">
+                <!-- Breadcrumb Navigation -->
+                <div class="flex justify-between">
+                    <div class="text-gray-500">
+                        <a href="#">Admin Dashboard</a>/
+                        <a href="#">Profile</a>
+                    </div>
+                </div>
+               <div class="grid grid-cols-1 gap-4">
+                    <div class="shadow-md shadow-[#0C3C5F11] bg-[url(plugins/images/card-01-01.png)] bg-cover bg-center border border-1 border-[#0001] bg-white p-2 rounded-lg space-y-5 relative h-[300px]">
+                        <div class="h-44 w-[100%] bg-[url(plugins/images/test.jpg)] bg-left bg-cover border" > </div>
+                        <div class="absolute top-[90px] left-5">
+                            <img src="plugins/images/profile-avator.jpg" class="w-44 h-44 rounded-full border border-[3px]" alt="" srcset="">
+                        </div>
+                        <div class="h-16 space-y-1">
+                            <span class="md:text-xl font-bold ml-[200px] shadow-sm ">Burhaan Cali Cabdiraxmaan</span>
+                            <div class="">
+                                <button class=" ml-[200px] bg-[#2AA8F2] p-2 px-3 rounded-md text-[#fff] font-bold shadow-lg shadow-[#2AA8F244] hover:bg-[#fff] border border-[#fff] hover:border-[#0003] hover:text-[#000]">Change Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div class="col-span-2 border hadow-lg shadow-[#0C3C5F22] bg-white p-4 rounded-lg">
+                        <div class="s">
+                            <h2 class="text-xl font-semibold mb-4">Profile Settings</h2>
+                            <form action="">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="flex flex-col">
+                                        <label for="firstname" class="text-sm font-medium text-gray-700">First Name</label>
+                                        <input type="text" id="firstname" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:border-none focus:ring-blue-500" placeholder="Enter your name">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <label for="lastname" class="text-sm font-medium text-gray-700">Last Name</label>
+                                        <input type="text" id="lastname" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:border-none focus:ring-blue-500" placeholder="Enter your last name">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <label for="email" class="text-sm font-medium text-gray-700">Email</label>
+                                        <input type="email" id="email" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:border-none focus:ring-blue-500" placeholder="Enter your email">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <label for="phone" class="text-sm font-medium text-gray-700">Phone Number</label>
+                                        <input type="tel" id="phone" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:border-none focus:ring-blue-500" placeholder="Enter your phone number">
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="bg-[#2AA8F2] mt-4 p-2 px-3 rounded-md text-[#fff] font-bold shadow-lg shadow-[#2AA8F244] hover:bg-[#fff] border border-[#fff] hover:border-[#0003] hover:text-[#000]">
+                                    <i class="bi bi-bookmark me-2"></i>Save Changes
+                                </button>
+                            </form>
+                        </div>
+                        
+                    </div>
+                    <div class=" border shadow-lg shadow-[#0C3C5F22] bg-white p-4 rounded-lg">
+                        <div class="">
+                            <h2 class="text-xl font-semibold mb-4">Change Password</h2>
+                            <form action="">
+                                <div class="flex flex-col mb-4">
+                                    <label for="current-password" class="text-sm font-medium text-gray-700">Current Password</label>
+                                    <input type="password" id="current-password" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:border-none focus:ring-blue-500" placeholder="Enter your current password">
+                                </div>
+                                <div class="flex flex-col mb-4">
+                                    <label for="new-password" class="text-sm font-medium text-gray-700">New Password</label>
+                                    <input type="password" id="new-password" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:border-none focus:ring-blue-500" placeholder="Enter your new password">
+                                </div>
+                                <div class="flex flex-col mb-4">
+                                    <label for="confirm-password" class="text-sm font-medium text-gray-700">Confirm New Password</label>
+                                    <input type="password" id="confirm-password" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:border-none focus:ring-blue-500" placeholder="Confirm your new password">
+                                </div>
+                                <button type="submit" class="bg-[#2AA8F2] p-2 px-3 rounded-md text-[#fff] font-bold shadow-lg shadow-[#2AA8F244] hover:bg-[#fff] border border-[#fff] hover:border-[#0003] hover:text-[#000]">Change Password</button>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery Library -->
+    <script src="plugins/js/jquery.min.js"></script>
+    <!-- Main JS for UI interactions -->
+    <script src="plugins/js/main.js"></script>
+    <!-- Chart.js Custom Scripts -->
+    <script src="plugins/js/chart.js"></script>
+</body>
+</html>
